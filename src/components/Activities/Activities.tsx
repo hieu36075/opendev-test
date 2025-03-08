@@ -96,7 +96,7 @@ const Activities = () => {
                 </defs>
               </svg>
 
-              <div className="absolute inset-0 bottom-0 bg-gradient-to-tr from-black/100 via-black/10 to-transparent p-4 rounded-bl-[20px]"></div>
+              <div className="absolute inset-0 bottom-0 bg-gradient-to-tr from-black/90 via-black/30 to-transparent p-4 rounded-bl-[20px]"></div>
               <p className="absolute bottom-13 md:bottom-[20px] left-[10px] text-white text-base/[20.42px] font-normal w-full max-w-[90%] md:max-w-[366px] tracking-wide">
                 <span className="font-semibold text-2xl text-white font-space md:hidden">
                   {ActivitiesData[currentCard].name}
