@@ -6,17 +6,20 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { ActivitiesData } from "../Activities/data";
 import Dot from "../Dot/Dot";
+import { BannerData } from "./data";
 
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const swiperRef = useRef<SwiperType | null>(null);
-
   const handleClickDot = (index: number) => {
     if (swiperRef.current) {
       swiperRef.current.slideTo(index);
     }
+    setCurrentSlide(index);
+  };
+
+  const handleSlideChange = (index: number) => {
     setCurrentSlide(index);
   };
 
@@ -26,7 +29,7 @@ const Banner = () => {
         modules={[Autoplay]}
         slidesPerView={1}
         onSlideChange={(swiper) => {
-          setCurrentSlide(swiper.activeIndex + 1);
+          handleSlideChange(swiper.activeIndex);
         }}
         allowSlideNext
         onSwiper={(swiper) => {
@@ -37,12 +40,12 @@ const Banner = () => {
         className="relative h-[660px] xl:h-[720px]"
         autoplay={{ delay: 5000 }}
       >
-        {ActivitiesData.map((item, index) => (
+        {BannerData.map((item, index) => (
           <SwiperSlide
             className="flex flex-col relative w-screen h-full"
             key={index}
           >
-            <div className="flex flex-col relative xl:absolute xl:bottom-[50px] xl:left-12 gap-4 xl:gap-6 pb-8 xl:pb-0  px-4 xl:px-0">
+            <div className="flex flex-col relative xl:absolute xl:bottom-[50px] xl:left-12 gap-4 xl:gap-6 pb-8 xl:pb-0  px-4 xl:px-0 z-5">
               <p className="font-bold text-7xl xl:text-[120px]/[143.62px] text-white font-big-shoulders-stencil">
                 GO-KARTS
               </p>
@@ -59,7 +62,7 @@ const Banner = () => {
                 </div>
               </div>
               <div className="absolute bottom-2 xl:static flex gap-2">
-                {ActivitiesData.map((item, index) => (
+                {BannerData.map((item, index) => (
                   <Dot
                     key={item.id}
                     isActive={index === currentSlide}
@@ -73,7 +76,7 @@ const Banner = () => {
               src={item.poster}
               alt={item.name}
             />
-
+            <div className="absolute inset-0 bottom-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent p-4 rounded-bl-[20px]"></div>
             <div
               className={`absolute bg-dark-100/50 sm:bg-transparent rounded-3xl flex flex-col bottom-6 xl:bottom-[50px] w-[90%] max-w-[382px] h-[150px] right-1 xl:right-12 text-[#D9D9D9] gap-3`}
             >
