@@ -76,7 +76,7 @@ const Banner = () => {
               src={item.poster}
               alt={item.name}
             />
-            <div className="absolute inset-0 bottom-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent p-4 rounded-bl-[20px]"></div>
+            <div className="absolute inset-0 bottom-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent p-4"></div>
             <div
               className={`absolute bg-dark-100/50 sm:bg-transparent rounded-3xl flex flex-col bottom-6 xl:bottom-[50px] w-[90%] max-w-[382px] h-[150px] right-1 xl:right-12 text-[#D9D9D9] gap-3`}
             >
